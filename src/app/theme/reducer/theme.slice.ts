@@ -1,9 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { create } from 'domain';
+import { createSlice } from '@reduxjs/toolkit';
+
 import storage from '../../../lib/storage/storage.lib';
 
 export type ThemeState = {
-  theme: 'dark' | 'light';
+  readonly theme: 'dark' | 'light';
 };
 
 const initialState: ThemeState = {

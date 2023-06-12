@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC, HTMLProps } from 'react';
 
 import {
   StyledLink,
@@ -7,14 +7,14 @@ import {
   ButtonSize,
 } from './button.styles';
 
-interface ButtonProps extends Omit<React.HTMLProps<HTMLButtonElement>, 'size'> {
+interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement>, 'size'> {
   to?: string;
   color?: ButtonColor;
   size?: ButtonSize;
   disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button: FC<ButtonProps> = ({
   children,
   ref,
   to,

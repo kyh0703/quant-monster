@@ -15,10 +15,6 @@ export type SignInResponseDTO = {
   auth: AuthData;
 };
 
-const signIn = (params: SignInRequestDTO): Promise<SignInResponseDTO> => {
-  return client.post(`/api/auth/signin`, params);
-};
-
 export const signInUser = createAsyncThunk<
   SignInResponseDTO,
   SignInRequestDTO,
@@ -27,10 +23,7 @@ export const signInUser = createAsyncThunk<
   }
 >('user/signin', async (params, { rejectWithValue }) => {
   try {
-    return signIn(params);
-    // const { accessToken, refreshToken } = response.data;
-    // storage.setItem('access_token', accessToken);
-    // storage.setItem('refresh_token', refreshToken);
+    return await client.post('./api/auth/signin', { params });
   } catch (err) {
     let error: AxiosError<ValidationError> = err as any;
     // storage.removeItem('access_token');

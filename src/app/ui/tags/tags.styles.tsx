@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import palette from '../../../lib/styles/palette.lib';
+import palette from '@/lib/styles/palette.lib';
 
 export const TagsContainer = styled.div`
   margin-top: 0.5rem;

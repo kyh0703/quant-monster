@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 
 import { TagsContainer } from './tags.styles';
 
-interface TagsProps {
+type TagsProps = {
   tags: string[];
-}
+};
 
 const Tags = ({ tags }: TagsProps) => {
   return (

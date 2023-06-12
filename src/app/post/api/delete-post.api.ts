@@ -15,7 +15,7 @@ type DeletePostResponseDTO = {
 
 export const removePostById = createAsyncThunk<
   DeletePostResponseDTO,
-  DeletePostResponseDTO,
+  DeletePostRequestDTO,
   {
     rejectValue: ValidationError;
   }

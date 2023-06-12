@@ -4,7 +4,7 @@ import {
   StyledButton,
 } from './ask-modal.styles';
 
-interface AskModalProps {
+type AskModalProps = {
   visible: boolean;
   title: string;
   description: string;
@@ -12,7 +12,7 @@ interface AskModalProps {
   cancelText?: string;
   onConfirm: () => void;
   onCancel: () => void;
-}
+};
 
 const AskModal = ({
   visible,

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import palette from '../../../lib/styles/palette.lib';
+import palette from '@/lib/styles/palette.lib';
 
 export const InputContainer = styled.div<{ flex: boolean }>`
   ${(props) =>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
@@ -17,9 +17,9 @@ import {
   ThemeLogoWrapper,
 } from './header.styles';
 
-interface HeaderProps {
+type HeaderProps = {
   onLogout?: () => void;
-}
+};
 
 const Header = ({ onLogout }: HeaderProps) => {
   const { pathname } = useLocation();
@@ -33,7 +33,7 @@ const Header = ({ onLogout }: HeaderProps) => {
   const dispatch = useAppDispatch();
 
   // On toggle theme button event
-  const onToggleTheme = (e: React.MouseEvent<HTMLOrSVGElement>) => {
+  const onToggleTheme = (e: MouseEvent<HTMLOrSVGElement>) => {
     if (theme === 'dark') {
       dispatch(themeActions.enableLightMode());
     } else {

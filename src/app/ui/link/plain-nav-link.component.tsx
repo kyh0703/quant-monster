@@ -1,4 +1,4 @@
-import React, { HTMLProps } from 'react';
+import { FC, HTMLProps } from 'react';
 import { NavLink } from 'react-router-dom';
 
 type PlainNavLinkProps = HTMLProps<HTMLAnchorElement> & {
@@ -6,7 +6,7 @@ type PlainNavLinkProps = HTMLProps<HTMLAnchorElement> & {
   isActive?: boolean;
 };
 
-const PlainNavLink: React.FC<PlainNavLinkProps> = ({
+const PlainNavLink: FC<PlainNavLinkProps> = ({
   to,
   isActive,
   children,

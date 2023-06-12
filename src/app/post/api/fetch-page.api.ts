@@ -25,7 +25,7 @@ const fetchPosts = async (
   } as FetchPostsResponseDto;
 };
 
-export const fetchPosList = createAsyncThunk<
+export const fetchPage = createAsyncThunk<
   FetchPostsRequestDto,
   FetchPostsResponseDto,
   {

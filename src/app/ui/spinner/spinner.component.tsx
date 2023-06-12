@@ -1,8 +1,8 @@
 import { SpinnerContainer, SpinnerItem, SpinnerText } from './spinner.styles';
 
-interface SpinnerProps {
+type SpinnerProps = {
   message?: string;
-}
+};
 
 const Spinner = ({ message }: SpinnerProps) => {
   return (

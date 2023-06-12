@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { createPostById } from '../api/posts.api';
 import {
+  createPostById,
   fetchPostById,
-  fetchPosts,
+  fetchPage,
   updatePostById,
   removePostById,
-} from '../api/posts.api';
+} from '@/app/post/api/index';
 import { PostItem } from '../types';
 
 export interface InputPayload {
@@ -15,23 +15,23 @@ export interface InputPayload {
 }
 
 type PostsState = {
-  isLoading: boolean;
-  error: string | null | undefined;
-  post: PostItem | null;
-  write: {
+  readonly loading: boolean;
+  readonly error: string | null | undefined;
+  readonly post: PostItem | null;
+  readonly write: {
     title: string;
     body: string;
     tags: string[];
     id: number;
   };
-  list: {
+  readonly list: {
     posts: PostItem[] | null;
     lastPage: number;
   };
 };
 
 const initialState: PostsState = {
-  isLoading: false,
+  loading: false,
   error: null,
   post: null,
   write: {
@@ -76,69 +76,74 @@ const postsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(createPostById.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(createPostById.fulfilled, (state, { payload: post }) => {
-      state.isLoading = false;
-      state.post = post;
-    });
-    builder.addCase(createPostById.rejected, (state, { error }) => {
-      state.isLoading = false;
-      state.error = error.message;
-    });
-    builder.addCase(fetchPosts.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(fetchPosts.fulfilled, (state, { payload: posts }) => {
-      state.isLoading = false;
-      state.list.posts = posts.posts;
-      state.list.lastPage = posts.lastPage;
-      state.error = null;
-    });
-    builder.addCase(fetchPosts.rejected, (state, { payload: error }) => {
-      state.isLoading = false;
-      state.error = null;
-    });
-    builder.addCase(fetchPostById.pending, (state, action) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(fetchPostById.fulfilled, (state, { payload: post }) => {
-      state.isLoading = false;
-      state.post = post.post;
-    });
-    builder.addCase(fetchPostById.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.error.message;
-    });
-    builder.addCase(updatePostById.pending, (state, action) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(updatePostById.fulfilled, (state, { payload: post }) => {
-      state.isLoading = false;
-      state.post = post;
-      state.error = '';
-    });
-    builder.addCase(updatePostById.rejected, (state, { error }) => {
-      state.isLoading = false;
-      state.error = error.message;
-    });
-    builder.addCase(removePostById.pending, (state, action) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(removePostById.fulfilled, (state, { payload: post }) => {
-      state.isLoading = false;
-      state.post = null;
-      state.error = null;
-    });
-    builder.addCase(removePostById.rejected, (state, { error }) => {
-      state.error = error.message;
-    });
+    builder
+      .addCase(createPostById.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(createPostById.fulfilled, (state, { payload: post }) => {
+        state.loading = false;
+        state.post = post;
+      })
+      .addCase(createPostById.rejected, (state, { error }) => {
+        state.loading = false;
+        state.error = error.message;
+      });
+    builder
+      .addCase(fetchPage.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchPage.fulfilled, (state, { payload: posts }) => {
+        state.loading = false;
+        state.list.posts = posts.posts;
+        state.list.lastPage = posts.lastPage;
+        state.error = null;
+      })
+      .addCase(fetchPage.rejected, (state, { payload: error }) => {
+        state.loading = false;
+        state.error = null;
+      });
+    builder
+      .addCase(fetchPostById.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchPostById.fulfilled, (state, { payload: post }) => {
+        state.loading = false;
+        state.post = post.post;
+      })
+      .addCase(fetchPostById.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
+    builder
+      .addCase(updatePostById.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updatePostById.fulfilled, (state, { payload: post }) => {
+        state.loading = false;
+        state.post = post;
+        state.error = '';
+      })
+      .addCase(updatePostById.rejected, (state, { error }) => {
+        state.loading = false;
+        state.error = error.message;
+      });
+    builder
+      .addCase(removePostById.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(removePostById.fulfilled, (state, { payload: post }) => {
+        state.loading = false;
+        state.post = null;
+        state.error = null;
+      })
+      .addCase(removePostById.rejected, (state, { error }) => {
+        state.error = error.message;
+      });
   },
 });
 

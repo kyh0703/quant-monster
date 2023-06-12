@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-import palette from '../../../lib/styles/palette.lib';
+import palette from '@/lib/styles/palette.lib';
 
 const rotation = keyframes`
     from {

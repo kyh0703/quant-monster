@@ -1,9 +1,8 @@
-import React, { ReactElement, forwardRef } from 'react';
+import { PropsWithRef, ReactElement, forwardRef } from 'react';
 
 import { InputContainer, InputField, InputLabel } from './input.styles';
 
-interface InputProps
-  extends React.PropsWithRef<JSX.IntrinsicElements['input']> {
+interface InputProps extends PropsWithRef<JSX.IntrinsicElements['input']> {
   id: string;
   label?: string | ReactElement;
   flex?: boolean;

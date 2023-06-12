@@ -1,8 +1,8 @@
-import React from 'react';
+import { FC, HTMLAttributes } from 'react';
 
 import { ResponsiveContainer } from './responsive.styles';
 
-const Responsive: React.FC<React.HTMLAttributes<HTMLSpanElement>> = ({
+const Responsive: FC<HTMLAttributes<HTMLSpanElement>> = ({
   children,
   ...rest
 }) => {
