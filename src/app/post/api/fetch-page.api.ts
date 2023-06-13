@@ -2,40 +2,35 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
 
 import client from '@/lib/client/client.lib';
-import { PostItem, ValidationError } from '../types';
 
-export interface FetchPostsRequestDto {
+import { PostItem, ValidationErrors } from '../types';
+
+export interface FetchPageRequestDto {
   tag: string | null;
   page: number | null;
   username?: string;
 }
 
-export interface FetchPostsResponseDto {
+export interface FetchPageResponseDTO {
   posts: PostItem[] | null;
   lastPage: number;
 }
 
-const fetchPosts = async (
-  params: FetchPostsRequestDto,
-): Promise<FetchPostsResponseDto> => {
-  const response = await client.post(`/api/posts`, params);
-  return {
-    posts: response.data.posts,
-    lastPage: Number(response.headers['last-page']),
-  } as FetchPostsResponseDto;
-};
-
 export const fetchPage = createAsyncThunk<
-  FetchPostsRequestDto,
-  FetchPostsResponseDto,
+  FetchPageResponseDTO,
+  FetchPageRequestDto,
   {
-    rejectValue: ValidationError;
+    rejectValue: ValidationErrors;
   }
 >('posts/list', async (params, { rejectWithValue }) => {
   try {
-    return fetchPosts(params);
+    const response = await client.post(`/api/posts`, params);
+    return {
+      posts: response.data.posts,
+      lastPage: Number(response.headers['last-page']),
+    } as FetchPageResponseDTO;
   } catch (err) {
-    let error: AxiosError<ValidationError> = err as any;
+    let error: AxiosError<ValidationErrors> = err as any;
     if (!error.response) {
       throw err;
     }

@@ -1,4 +1,4 @@
-export type ValidationError = {
+export type ValidationErrors = {
   status: number;
   message: string | null | undefined;
 };

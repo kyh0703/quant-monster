@@ -2,7 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
 
 import client from '@/lib/client/client.lib';
-import { PostItem, ValidationError } from '../types';
+
+import { ValidationErrors } from '../types';
 
 export type UpdatePostRequestDTO = {
   id: number;
@@ -22,14 +23,14 @@ export type UpdatePostResponseDTO = {
 };
 
 export const updatePostById = createAsyncThunk<
-  PostUpdateResponse,
-  PostUpdateRequest,
+  UpdatePostResponseDTO,
+  UpdatePostRequestDTO,
   {
     rejectValue: ValidationErrors;
   }
 >('posts/updateById', async (params, { rejectWithValue }) => {
   try {
-    const response = await client.patch<PostUpdateResponse>(`/api/posts`, {
+    const response = await client.patch<UpdatePostResponseDTO>(`/api/posts`, {
       params,
     });
     return response.data;

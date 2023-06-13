@@ -1,12 +1,12 @@
-import AuthTemplate from '@/features/auth/components/auth-template/auth-template.component';
-import LoginForm from '@/features/auth/components/sign-in-form/sign-in-form.component';
+import AuthTemplate from '@/app/auth/components/auth-template/auth-template.component';
+import SignInForm from '@/app/auth/components/sign-in-form/sign-in-form.component';
 
-function SignInPage() {
+const SignInPage = () => {
   return (
     <AuthTemplate>
-      <LoginForm />
+      <SignInForm />
     </AuthTemplate>
   );
-}
+};
 
 export default SignInPage;

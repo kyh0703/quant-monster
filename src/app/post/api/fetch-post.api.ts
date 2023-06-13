@@ -3,33 +3,28 @@ import { AxiosError } from 'axios';
 
 import client from '@/lib/client/client.lib';
 
-import { PostItem, ValidationError } from '../types';
+import { PostItem, ValidationErrors } from '../types';
 
-export type FetChPostRequestDTO {
+export type FetChPostRequestDTO = {
   postId: number;
-}
+};
 
-export type FetchPostResponseDTO {
+export type FetchPostResponseDTO = {
   post: PostItem;
-}
-
-const fetchPost = (
-  params: FetChPostRequestDTO,
-): Promise<FetchPostResponseDTO> => {
-  return client.post(`/api/posts/${params.postId}`);
 };
 
 export const fetchPostById = createAsyncThunk<
-  FetChPostRequestDTO,
   FetchPostResponseDTO,
+  FetChPostRequestDTO,
   {
-    rejectValue: ValidationError;
+    rejectValue: ValidationErrors;
   }
 >('posts/fetchById', async (params, { rejectWithValue }) => {
   try {
-    return fetchPost(params);
+    const response = await client.post(`/api/posts/${params.postId}`);
+    return response.data;
   } catch (err) {
-    let error: AxiosError<ValidationError> = err as any;
+    let error: AxiosError<ValidationErrors> = err as any;
     if (!error.response) {
       throw err;
     }

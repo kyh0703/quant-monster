@@ -3,7 +3,7 @@ import { AxiosError } from 'axios';
 
 import client from '@/lib/client/client.lib';
 
-import { ValidationError } from '../types';
+import { ValidationErrors } from '../types';
 
 export type CreatePostRequestDTO = {
   title: string;
@@ -21,23 +21,18 @@ export type CreatePostResponseDTO = {
   username: string;
 };
 
-const createPost = (
-  params: CreatePostRequestDTO,
-): Promise<CreatePostResponseDTO> => {
-  return client.post(`/api/posts/write`, { params });
-};
-
 export const createPostById = createAsyncThunk<
   CreatePostResponseDTO,
   CreatePostRequestDTO,
   {
-    rejectValue: ValidationError;
+    rejectValue: ValidationErrors;
   }
 >('posts/create', async (params, { rejectWithValue }) => {
   try {
-    return createPost(params);
+    const response = await client.post(`/ap/posts/write`, { params });
+    return response.data;
   } catch (err) {
-    let error: AxiosError<ValidationError> = err as any;
+    let error: AxiosError<ValidationErrors> = err as any;
     if (!error.response) {
       throw err;
     }

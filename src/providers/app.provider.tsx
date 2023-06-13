@@ -1,11 +1,11 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { darkTheme } from '@/app/theme';
 
 type AppProviderProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export const AppProvider = ({ children }: AppProviderProps) => {

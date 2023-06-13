@@ -3,7 +3,7 @@ import { AxiosError } from 'axios';
 
 import client from '@/lib/client/client.lib';
 
-import { ValidationError } from '../types';
+import { ValidationErrors } from '../types';
 
 type DeletePostRequestDTO = {
   id: number;
@@ -17,7 +17,7 @@ export const removePostById = createAsyncThunk<
   DeletePostResponseDTO,
   DeletePostRequestDTO,
   {
-    rejectValue: ValidationError;
+    rejectValue: ValidationErrors;
   }
 >('posts/removeById', async (params, { rejectWithValue }) => {
   try {
@@ -26,7 +26,7 @@ export const removePostById = createAsyncThunk<
     });
     return response.data;
   } catch (err) {
-    let error: AxiosError<ValidationError> = err as any;
+    let error: AxiosError<ValidationErrors> = err as any;
     if (!error.response) {
       throw err;
     }
