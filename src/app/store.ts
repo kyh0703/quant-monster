@@ -1,16 +1,27 @@
-import { configureStore } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
+import { ConfigureStoreOptions, configureStore } from '@reduxjs/toolkit';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import AuthReducer from '@/app/auth/reducer/auth.slice';
-import ThemeReducer from '@/app/theme/reducer/theme.slice';
+import auth from '@/app/auth/services/auth.slice';
+import theme from '@/app/theme/services/theme.slice';
 
-const store = configureStore({
-  reducer: {
-    theme: ThemeReducer,
-    auth: AuthReducer,
-  },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
-});
+import { api } from '@/app/api';
 
-export type RootState = ReturnType<typeof store.getState>;
+export const createStore = (
+  options?: ConfigureStoreOptions['preloadedState'],
+) =>
+  configureStore({
+    reducer: {
+      [api.reducerPath]: api.reducer,
+      auth,
+      theme,
+    },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(api.middleware),
+  });
+
+export const store = createStore();
+
 export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export type RootState = ReturnType<typeof store.getState>;
+export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;

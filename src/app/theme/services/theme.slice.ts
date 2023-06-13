@@ -10,7 +10,7 @@ const initialState: ThemeState = {
   theme: 'light',
 };
 
-const themeSlice = createSlice({
+const slice = createSlice({
   name: 'theme',
   initialState: initialState,
   reducers: {
@@ -25,5 +25,5 @@ const themeSlice = createSlice({
   },
 });
 
-export const themeActions = themeSlice.actions;
-export default themeSlice.reducer;
+export const themeActions = slice.actions;
+export default slice.reducer;

@@ -5,7 +5,7 @@ import { FaSun, FaMoon } from 'react-icons/fa';
 import { useAppDispatch } from '@/app/hooks';
 import storage from '@/lib/storage/storage.lib';
 
-import { themeActions } from '@/app/theme/reducer/theme.slice';
+import { themeActions } from '@/app/theme/services/theme.slice';
 
 import { ReactComponent as MonsterLogo } from '@/asserts/image/Vampire.svg';
 

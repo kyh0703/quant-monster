@@ -5,17 +5,6 @@ import client from '@/lib/client/client.lib';
 
 import { PostItem, ValidationErrors } from '../types';
 
-export interface FetchPageRequestDto {
-  tag: string | null;
-  page: number | null;
-  username?: string;
-}
-
-export interface FetchPageResponseDTO {
-  posts: PostItem[] | null;
-  lastPage: number;
-}
-
 export const fetchPage = createAsyncThunk<
   FetchPageResponseDTO,
   FetchPageRequestDto,

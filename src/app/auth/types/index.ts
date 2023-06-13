@@ -1,11 +1,11 @@
-export type UserData = {
+export type User = {
   id: number;
   email: string;
   username: string;
   password: string;
 };
 
-export type AuthData = {
+export type Token = {
   tokenType: string;
   accessToken: string;
   accessExpire: number;

@@ -5,14 +5,6 @@ import client from '@/lib/client/client.lib';
 
 import { ValidationErrors } from '../types';
 
-type DeletePostRequestDTO = {
-  id: number;
-};
-
-type DeletePostResponseDTO = {
-  id: number;
-};
-
 export const removePostById = createAsyncThunk<
   DeletePostResponseDTO,
   DeletePostRequestDTO,

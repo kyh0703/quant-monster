@@ -5,22 +5,6 @@ import client from '@/lib/client/client.lib';
 
 import { ValidationErrors } from '../types';
 
-export type CreatePostRequestDTO = {
-  title: string;
-  body: string;
-  tags: string[];
-};
-
-export type CreatePostResponseDTO = {
-  id: number;
-  title: string;
-  body: string;
-  tags: string[];
-  publishAt: Date;
-  userId: number;
-  username: string;
-};
-
 export const createPostById = createAsyncThunk<
   CreatePostResponseDTO,
   CreatePostRequestDTO,

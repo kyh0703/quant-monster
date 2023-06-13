@@ -1,25 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AxiosError } from 'axios';
 
-import { signUpUser, signInUser, signOutUser } from '@/app/auth/api/index';
+import { signUpUser, signInUser, signOutUser } from '@/app/auth/services/index';
+import { RootState } from '@/app/store';
 
-import { UserData, AuthData } from '../types';
+import { User, Token } from '../types';
 
 type UsersState = {
-  readonly loading: boolean;
-  readonly error: AxiosError | Error | null;
-  readonly userInfo: UserData | null;
-  readonly authInfo: AuthData | null;
+  readonly user: User | null;
+  readonly auth: Token | null;
 };
 
 const initialState = {
-  loading: false,
-  error: null,
-  userInfo: null,
-  authInfo: null,
+  user: null,
+  auth: null,
 } as UsersState;
 
-const authSlice = createSlice({
+const slice = createSlice({
   name: 'auth',
   initialState,
   reducers: {},
@@ -74,5 +70,5 @@ const authSlice = createSlice({
   },
 });
 
-export const authActions = authSlice.actions;
-export default authSlice.reducer;
+export const authActions = slice.actions;
+export default slice.reducer;
