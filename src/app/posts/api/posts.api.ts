@@ -1,6 +1,8 @@
 import { api } from '@/app/api';
 
-export const authApi = api.injectEndpoints({
+import { Post, PostsRequestDTO, PostsResponseDTO } from '../types';
+
+export const postsApi = api.injectEndpoints({
   endpoints: (build) => ({
     addPost: build.mutation<Post, Partial<Post>>({
       query(body) {
@@ -49,4 +51,4 @@ export const {
   useGetPostQuery,
   useUpdatePostMutation,
   useDeletePostMutation,
-} = authApi;
+} = postsApi;
