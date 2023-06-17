@@ -2,7 +2,7 @@ import { useMemo, useRef } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-import { InputPayload } from '@/app/post/services/posts.slice';
+import { InputPayload } from '@/app/posts/index';
 
 import { EditorBlock, TitleInput } from './post-editor.styles';
 

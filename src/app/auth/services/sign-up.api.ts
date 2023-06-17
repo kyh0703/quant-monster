@@ -5,7 +5,7 @@ import client from '@/lib/client/client.lib';
 
 import { UserData, ValidationError } from '../types';
 
-export type SignUpRequestDTO = {
+export type SignUpDTO = {
   email: string;
   username: string;
   password: string;

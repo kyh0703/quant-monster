@@ -30,7 +30,6 @@ export const postsApi = api.injectEndpoints({
         return {
           url: `/api/posts/${id}`,
           method: 'PUT',
-          body,
         };
       },
     }),

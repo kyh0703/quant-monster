@@ -1,5 +1,5 @@
 import AuthRoutes from '@/app/auth/routes';
-import PostRoutes from '@/app/post/routes';
+import PostRoutes from '@/app/posts/routes';
 
 const App = () => {};
 

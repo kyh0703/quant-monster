@@ -1,7 +1,6 @@
 import { ConfigureStoreOptions, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import auth from '@/app/auth/services/auth.slice';
 import theme from '@/app/theme/services/theme.slice';
 
 import { api } from '@/app/api';
@@ -12,7 +11,6 @@ export const createStore = (
   configureStore({
     reducer: {
       [api.reducerPath]: api.reducer,
-      auth,
       theme,
     },
     middleware: (getDefaultMiddleware) =>

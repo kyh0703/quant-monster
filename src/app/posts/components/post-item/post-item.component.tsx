@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 
-import { PostItem } from '@/app/post/types';
+import { Post } from '@/app/posts/types';
 
 import { PostItemContainer } from './post-item.styles';
 
 interface PostItemProps {
-  post: PostItem;
+  post: Post;
 }
 
 const PostItem = ({ post }: PostItemProps) => {

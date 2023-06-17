@@ -1,12 +1,12 @@
-import PostItem from '@/app/post/components/post-item/post-item.component';
+import PostItem from '@/app/posts/components/post-item/post-item.component';
 import Spinner from '@/app/ui/spinner/spinner.component';
 
-import { PostItem as TPostItem } from '@/app/post/types/index';
+import { Post } from '@/app/posts/types/index';
 
 import { PostListContainer, WritePostButtonWrapper } from './post-list.styles';
 
 interface PostListProps {
-  posts: TPostItem[] | null;
+  posts: Post[] | null;
   loading: boolean;
   error?: string | null;
 }

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import storage from '../../../lib/storage/storage.lib';
+import storage from '@/lib/storage/storage.lib';
 
 export type ThemeState = {
   readonly theme: 'dark' | 'light';

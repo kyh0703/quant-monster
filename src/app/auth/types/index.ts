@@ -1,3 +1,20 @@
+export type SignInRequestDTO = {
+  email: string;
+  password: string;
+};
+
+export type SignInResponseDTO = {
+  user: User;
+  auth: Token;
+};
+
+export type SignUpDTO = {
+  email: string;
+  username: string;
+  password: string;
+  passwordConfirm: string;
+};
+
 export type User = {
   id: number;
   email: string;

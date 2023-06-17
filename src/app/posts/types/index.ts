@@ -1,14 +1,19 @@
 // fetchPostsDTO
-export interface PostsRequestDTO {
+export type PostsRequestDTO = {
   tag: string | null;
   page: number | null;
   username?: string;
-}
+};
 
-export interface PostsResponseDTO {
+export type PostsResponseDTO = {
   posts: Post[] | null;
   lastPage: number;
-}
+};
+
+export type InputPayload = {
+  key: 'body' | 'title' | 'tags';
+  value: string | string[];
+};
 
 export type ValidationErrors = {
   status: number;

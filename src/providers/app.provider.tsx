@@ -1,8 +1,22 @@
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import Button from '@/app/ui/button/button.component';
+import Spinner from '@/app/ui/spinner/spinner.component';
+
 import { darkTheme } from '@/app/theme';
+
+const ErrorFallback = () => {
+  return (
+    <div>
+      <h2>Ooops, somthine went wrong :</h2>
+      <Button>Refresh</Button>
+    </div>
+  );
+};
 
 type AppProviderProps = {
   children: ReactNode;
@@ -10,8 +24,20 @@ type AppProviderProps = {
 
 export const AppProvider = ({ children }: AppProviderProps) => {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <Router>{children}</Router>
-    </ThemeProvider>
+    <Suspense
+      fallback={
+        <div>
+          <Spinner />
+        </div>
+      }
+    >
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <HelmetProvider>
+          <ThemeProvider theme={darkTheme}>
+            <Router>{children}</Router>
+          </ThemeProvider>
+        </HelmetProvider>
+      </ErrorBoundary>
+    </Suspense>
   );
 };

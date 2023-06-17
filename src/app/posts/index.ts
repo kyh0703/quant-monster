@@ -1,2 +1,1 @@
-export * from './api/post.api';
-export * from './types';
+export * from './types/index';
