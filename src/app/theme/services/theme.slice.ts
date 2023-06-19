@@ -26,4 +26,5 @@ const slice = createSlice({
 });
 
 export const themeActions = slice.actions;
+
 export default slice.reducer;

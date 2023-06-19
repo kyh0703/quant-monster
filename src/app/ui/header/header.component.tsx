@@ -2,7 +2,7 @@ import { useState, MouseEvent } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
-import { useAppDispatch } from '@/app/hooks';
+import { useAppDispatch } from '@/app/store';
 import storage from '@/lib/storage/storage.lib';
 
 import { themeActions } from '@/app/theme/services/theme.slice';

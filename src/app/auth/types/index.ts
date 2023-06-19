@@ -1,11 +1,6 @@
-export type SignInRequestDTO = {
+export type SignInDTO = {
   email: string;
   password: string;
-};
-
-export type SignInResponseDTO = {
-  user: User;
-  auth: Token;
 };
 
 export type SignUpDTO = {
@@ -20,6 +15,7 @@ export type User = {
   email: string;
   username: string;
   password: string;
+  token?: Token;
 };
 
 export type Token = {

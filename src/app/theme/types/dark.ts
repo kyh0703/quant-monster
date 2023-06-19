@@ -1,5 +1,6 @@
 import { DefaultTheme } from 'styled-components';
-import palette from '../../../lib/styles/palette.lib';
+
+import palette from '@/lib/styles/palette.lib';
 
 export const darkTheme: DefaultTheme = {
   id: 'dark',
