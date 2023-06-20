@@ -36,10 +36,12 @@
     "yup": "^1.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "start:cli": "cross-env BROWSER=none craco start",
+    "build": "craco build",
+    "test": "is-ci \"test:coverage\" \"test:jest\"",
+    "test:jset": "craco test",
+    "test:coverage": "CI=1 yarn test:jest -- --coverage"
   },
   "eslintConfig": {
     "extends": [
