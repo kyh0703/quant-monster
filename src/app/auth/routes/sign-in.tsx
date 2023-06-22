@@ -1,12 +1,10 @@
 import AuthTemplate from '@/app/auth/components/auth-template/auth-template.component';
 import SignInForm from '@/app/auth/components/sign-in-form/sign-in-form.component';
 
-const SignInPage = () => {
+export const SignInPage = () => {
   return (
     <AuthTemplate>
       <SignInForm />
     </AuthTemplate>
   );
 };
-
-export default SignInPage;
