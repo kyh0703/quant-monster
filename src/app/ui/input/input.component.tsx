@@ -2,11 +2,11 @@ import { PropsWithRef, ReactElement, forwardRef } from 'react';
 
 import { InputContainer, InputField, InputLabel } from './input.styles';
 
-interface InputProps extends PropsWithRef<JSX.IntrinsicElements['input']> {
+type InputProps = PropsWithRef<JSX.IntrinsicElements['input']> & {
   id: string;
   label?: string | ReactElement;
   flex?: boolean;
-}
+};
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ id, label, flex = false, ...rest }, ref) => {
@@ -20,7 +20,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         <InputField id={id} ref={ref} {...rest} />
       </InputContainer>
     );
-  },
+  }
 );
 
 export default Input;

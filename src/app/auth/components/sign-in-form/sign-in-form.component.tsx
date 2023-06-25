@@ -8,7 +8,7 @@ import { FaLock, FaUser } from 'react-icons/fa';
 import Input from '@/app/ui/input/input.component';
 
 import { useAppDispatch, useTypedSelector } from '@/app/store';
-import { signInUser, SignInDTO } from '@/app/auth/index';
+import { User, SignInDTO } from '@/app/auth/index';
 
 import {
   SignInFormContainer,
@@ -22,10 +22,12 @@ const SignInForm = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const { authError, userInfo } = useAppSelector(({ users }) => ({
-    authError: users.error,
-    userInfo: users.userInfo,
-  }));
+  const authError = null;
+  const userInfo = null;
+  // const { authError, userInfo } = useAppSelector(({ users }) => ({
+  // authError: users.error,
+  // userInfo: users.userInfo,
+  // }));
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().required('아이디가 입력되지 않았습니다').email('아이디는 이메일형식입니다'),
@@ -45,7 +47,7 @@ const SignInForm = () => {
   });
 
   const onSubmit = (data: SignInDTO) => {
-    dispatch(signInUser(data));
+    // dispatch(signInUser(data));
   };
 
   useEffect(() => {
@@ -83,7 +85,7 @@ const SignInForm = () => {
           {...register('password')}
         />
         {errors?.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
-        <SignInButton size="large-full" color="blue">
+        <SignInButton size="large" color="blue">
           로그인
         </SignInButton>
       </form>

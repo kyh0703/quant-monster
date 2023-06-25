@@ -1,32 +1,33 @@
 import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
 
-import palette, { buttonColorMap } from '@/lib/styles/palette.lib';
+import { ButtonSizes, ButtonVariants } from '@/app/ui/button/button.component';
 
-export type ButtonColor =
-  | 'none'
-  | 'teal'
-  | 'gray'
-  | 'red'
-  | 'cyan'
-  | 'blue'
-  | 'orange'
-  | 'violet'
-  | 'indigo';
-
-export type ButtonSize = 'small' | 'medium' | 'large' | 'large-full';
-
-type ButtonProps = {
-  color: ButtonColor;
-  size: ButtonSize;
-  disabled: boolean;
+const getVariantStyles = ({ variant = 'primary' }) => {
+  switch (variant) {
+    case 'primary':
+      return css`
+        background-color: #0000ffa0;
+        color: white;
+      `;
+    case 'inverse':
+      return css`
+        background-color: white;
+        color: #0000ffa0;
+      `;
+    case 'danger':
+      return css`
+        background-color: #ff00009b;
+        color: #fff;
+      `;
+  }
 };
 
-const ButtonSizeStyles = ({ size = 'medium' }: { size: ButtonSize }) => {
+const getSizeStyles = ({ size = 'medium' }) => {
   switch (size) {
     case 'small':
       return css`
         height: 1.5rem;
+        padding: 10px 16px;
         padding-left: 1.25rem;
         padding-right: 1.25rem;
         font-size: 1rem;
@@ -41,17 +42,6 @@ const ButtonSizeStyles = ({ size = 'medium' }: { size: ButtonSize }) => {
         }
         font-size: 1.125rem;
       `;
-    case 'large-full':
-      return css`
-        height: 2.5rem;
-        padding-left: 1.125rem;
-        padding-right: 1.125rem;
-        & + & {
-          margin-left: 0.875rem;
-        }
-        font-size: 1.125rem;
-        width: 100%;
-      `;
     case 'medium':
       return css`
         height: 2rem;
@@ -62,7 +52,12 @@ const ButtonSizeStyles = ({ size = 'medium' }: { size: ButtonSize }) => {
   }
 };
 
-export const buttonStyle = css<ButtonProps>`
+type ButtonProps = {
+  variant: ButtonVariants;
+  size: ButtonSizes;
+};
+
+export const StyledButton = styled.button<ButtonProps>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -72,36 +67,18 @@ export const buttonStyle = css<ButtonProps>`
   border: none;
   border-radius: 4px;
 
-  color: ${(props) => buttonColorMap[props.color].color};
-  background: ${(props) => buttonColorMap[props.color].background};
-  &:hover,
-  &:focus {
-    color: ${(props) => buttonColorMap[props.color].hoverBackground};
-  }
-
-  ${ButtonSizeStyles}
-
-  ${(props) =>
-    props.disabled &&
-    css`
-      background: ${palette.gray3};
-      color: ${palette.gray5};
-      cursor: not-allowed;
-    `}
+  ${(props) => getVariantStyles(props)}
+  ${(props) => getSizeStyles(props)}
 `;
 
-export const StyledButton = styled.button<ButtonProps>`
-  ${buttonStyle}
-`;
-
-export const StyledLink = styled(Link)<ButtonProps>`
-  text-decoration: none;
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-  }
-  ${buttonStyle};
-`;
+// export const StyledLink = styled(Link)<ButtonProps>`
+//   text-decoration: none;
+//   &:focus,
+//   &:hover,
+//   &:visited,
+//   &:link,
+//   &:active {
+//     text-decoration: none;
+//   }
+//   ${buttonStyle};
+// `;

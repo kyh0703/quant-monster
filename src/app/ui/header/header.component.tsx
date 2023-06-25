@@ -13,7 +13,7 @@ import {
   HeaderContainer,
   LogoWrapper,
   NavLinkContainer,
-  StyledNavLink,
+  StyledLink,
   ThemeLogoWrapper,
 } from './header.styles';
 
@@ -52,11 +52,11 @@ const Header = ({ onLogout }: HeaderProps) => {
           <MonsterLogo />
         </LogoWrapper>
         <NavLinkContainer open={menuOpen}>
-          <StyledNavLink to="/posts" isActive={pathname === '/post'}>
+          <StyledLink to="/posts" isActive={pathname === '/post'}>
             POST
-          </StyledNavLink>
-          <StyledNavLink to="/signin">SIGN IN</StyledNavLink>
-          <StyledNavLink to="/signup">SIGN UP</StyledNavLink>
+          </StyledLink>
+          <StyledLink to="/signin">SIGN IN</StyledLink>
+          <StyledLink to="/signup">SIGN UP</StyledLink>
           <ThemeLogoWrapper>
             {theme === 'dark' ? (
               <FaMoon onClick={onToggleTheme} />

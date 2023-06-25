@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import PlainNavLink from '@/app/ui/link/plain-nav-link.component';
+import Link from '@/app/ui/link/link.component';
 
 export const HeaderContainer = styled.div`
   height: 4rem;
@@ -12,7 +12,7 @@ export const HeaderContainer = styled.div`
   margin-bottom: 30px;
 `;
 
-export const LogoWrapper = styled(PlainNavLink)`
+export const LogoWrapper = styled(Link)`
   height: 100%;
   width: 1.5rem;
   padding: 1rem;
@@ -29,9 +29,8 @@ export const NavLinkContainer = styled.nav<{
   justify-content: flex-end;
 
   /* /* background: ${(props) =>
-    props.theme.bodyContentBackgroundColor}; border-bottom: 3px solid ${(
-    props,
-  ) => props.theme.bodyContentBorderColor};
+    props.theme.bodyContentBackgroundColor}; border-bottom: 3px solid ${(props) =>
+    props.theme.bodyContentBorderColor};
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 
@@ -57,7 +56,7 @@ export const NavLinkContainer = styled.nav<{
   } */
 `;
 
-export const StyledNavLink = styled(PlainNavLink)`
+export const StyledLink = styled(Link)`
   padding: 10px 15px;
 
   &.active {

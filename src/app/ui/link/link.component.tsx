@@ -1,17 +1,12 @@
 import { FC, HTMLProps } from 'react';
 import { NavLink } from 'react-router-dom';
 
-type PlainNavLinkProps = HTMLProps<HTMLAnchorElement> & {
+type LinkProps = HTMLProps<HTMLAnchorElement> & {
   to: string;
   isActive?: boolean;
 };
 
-const PlainNavLink: FC<PlainNavLinkProps> = ({
-  to,
-  isActive,
-  children,
-  ...rest
-}) => {
+const Link: FC<LinkProps> = ({ to, isActive, children, ...rest }) => {
   const htmlProps = rest as any;
   return (
     <NavLink
@@ -29,4 +24,4 @@ const PlainNavLink: FC<PlainNavLinkProps> = ({
   );
 };
 
-export default PlainNavLink;
+export default Link;

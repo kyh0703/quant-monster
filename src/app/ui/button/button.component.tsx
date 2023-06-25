@@ -1,61 +1,35 @@
-import { FC, HTMLProps } from 'react';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
 
-import {
-  StyledLink,
-  StyledButton,
-  ButtonColor,
-  ButtonSize,
-} from './button.styles';
+import { StyledButton } from './button.styles';
 
-interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement>, 'size'> {
-  to?: string;
-  color?: ButtonColor;
-  size?: ButtonSize;
-  disabled?: boolean;
-}
+export type ButtonVariants = 'primary' | 'inverse' | 'danger';
 
-const Button: FC<ButtonProps> = ({
-  children,
-  ref,
-  to,
-  color = 'teal',
-  size = 'medium',
-  disabled = false,
-  ...rest
-}) => {
-  const htmlProps = rest as any;
-  return to ? (
-    <StyledLink
-      to={to}
-      color={color}
-      size={size}
-      disabled={disabled}
-      {...htmlProps}
-      onClick={(event) => {
-        if (htmlProps.onClick) {
-          htmlProps.onClick(event);
-        }
-        (event.target as HTMLAnchorElement).blur();
-      }}
-    >
-      {children}
-    </StyledLink>
-  ) : (
-    <StyledButton
-      color={color}
-      size={size}
-      disabled={disabled}
-      {...htmlProps}
-      onClick={(event) => {
-        if (htmlProps.onClick) {
-          htmlProps.onClick(event);
-        }
-        (event.target as HTMLButtonElement).blur();
-      }}
-    >
-      {children}
-    </StyledButton>
-  );
+export type ButtonSizes = 'small' | 'medium' | 'large';
+
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: ButtonVariants;
+  size?: ButtonSizes;
+  isLoading?: boolean;
 };
+
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      type = 'button',
+      className = '',
+      variant = 'primary',
+      size = 'medium',
+      isLoading = false,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <StyledButton variant={variant} size={size} ref={ref} type={type} {...props}></StyledButton>
+    );
+  }
+);
+
+Button.displayName = 'Button';
 
 export default Button;
