@@ -9,7 +9,7 @@ import Button from '@/app/ui/button/button.component';
 import Spinner from '@/app/ui/spinner/spinner.component';
 
 import { store } from '@/app/store';
-import { darkTheme } from '@/app/theme';
+import { darkTheme, lightTheme } from '@/app/theme';
 
 const ErrorFallback = () => {
   return (

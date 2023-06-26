@@ -4,15 +4,14 @@ import { FaSun, FaMoon } from 'react-icons/fa';
 
 import { useAppDispatch } from '@/app/store';
 import storage from '@/lib/storage/storage.lib';
-
 import { themeActions } from '@/app/theme/services/theme.slice';
 
-import { ReactComponent as MonsterLogo } from '@/asserts/image/Vampire.svg';
+import { ReactComponent as MonsterLogo } from '@/assets/image/Vampire.svg';
 
 import {
   HeaderContainer,
   LogoWrapper,
-  NavLinkContainer,
+  LinkContainer,
   StyledLink,
   ThemeLogoWrapper,
 } from './header.styles';
@@ -51,12 +50,10 @@ const Header = ({ onLogout }: HeaderProps) => {
         <LogoWrapper to="/">
           <MonsterLogo />
         </LogoWrapper>
-        <NavLinkContainer open={menuOpen}>
-          <StyledLink to="/posts" isActive={pathname === '/post'}>
-            POST
-          </StyledLink>
-          <StyledLink to="/signin">SIGN IN</StyledLink>
-          <StyledLink to="/signup">SIGN UP</StyledLink>
+        <LinkContainer open={menuOpen}>
+          <StyledLink to="/posts">포스트</StyledLink>
+          <StyledLink to="/auth/signin">로그인</StyledLink>
+          <StyledLink to="/auth/signup">SIGN UP</StyledLink>
           <ThemeLogoWrapper>
             {theme === 'dark' ? (
               <FaMoon onClick={onToggleTheme} />
@@ -64,7 +61,7 @@ const Header = ({ onLogout }: HeaderProps) => {
               <FaSun onClick={onToggleTheme} />
             )}
           </ThemeLogoWrapper>
-        </NavLinkContainer>
+        </LinkContainer>
       </HeaderContainer>
       <Outlet />
     </>

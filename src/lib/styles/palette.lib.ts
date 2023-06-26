@@ -95,29 +95,9 @@ const palette = {
   indigo8: '#3b5bdb',
   indigo9: '#364fc7',
 
-  /* night owl */
-  owlBackground: '#011627',
-  owlForeground: '#d6deeb',
-  owlActiveBarBackground: '#000c1d',
-  owlActiveBarBorder: '#102a44',
-  owlSideBarBackground: '#001122',
-  owlSideBarBorder: '#102a44',
-  owlCurrentLine: '#01111d',
-  owlSelection: '#1d3b53',
-  owlCursor: '#80a4c2',
-  owlLineNumber: '#4b6479',
-  owlCurrentLineNumber: '#c5e4fd',
-  owlTags: '#7fdbca',
-  owlComment: '#637777',
-  owlRed: '#ef5350',
-  owlGreen: '#22da6e',
-  owlYellow: '#addb67',
-  owlBlue: '#82aaff',
-  owlOrange: '#f78c6c',
-  owlMagenta: '#c792ea',
-  owlCyan: '#21c7a8',
-  owlWhite: '#ffffff',
-  owlBrightBlack: '#575656',
+  /* black */
+  black0: 'black',
+  black9: '#0e0e0e',
 };
 
 export const buttonColorMap: {

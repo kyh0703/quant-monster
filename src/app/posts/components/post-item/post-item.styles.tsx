@@ -9,7 +9,7 @@ export const PostItemContainer = styled.div`
     padding-top: 0;
   }
   & + & {
-    border-top: 1px solid ${palette.owlRed};
+    border-top: 1px solid ${palette.blue5};
   }
   h2 {
     font-size: 2rem;

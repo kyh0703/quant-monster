@@ -3,8 +3,7 @@ import { useRoutes } from 'react-router-dom';
 import { Router } from './route';
 
 const AppRouter = () => {
-  const commonRoutes = [{ path: '/', element: <div>되라</div> }];
-  const element = useRoutes([...Router, ...commonRoutes]);
+  const element = useRoutes([...Router]);
 
   return <>{element}</>;
 };

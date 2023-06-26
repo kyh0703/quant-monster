@@ -23,7 +23,7 @@ export const SpinnerItem = styled.div`
   height: 6rem;
   width: 6rem;
   border-radius: 50%;
-  border: 1px solid ${palette.owlMagenta};
+  border: 1px solid ${palette.teal2};
   border-top: none;
   border-right: none;
   animation: ${rotation} 1s linear infinite;
