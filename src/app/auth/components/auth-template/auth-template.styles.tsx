@@ -17,10 +17,10 @@ export const AuthBox = styled.div`
     letter-spacing: 2px;
   }
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.125);
-  border: 1px solid ${(props) => props.theme.bodyContentBorderColor};
+  border: 1px solid ${(props) => props.theme.color};
   padding: 2rem;
-  width: 460px;
-  color: ${(props) => props.theme.bodyContentColor};
-  background: ${(props) => props.theme.bodyContentBackgroundColor};
+  width: 600px;
+  color: ${(props) => props.theme.color};
+  background: ${(props) => props.theme.background};
   border-radius: 10px;
 `;

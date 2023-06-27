@@ -106,7 +106,7 @@ const SignUpForm: FC = () => {
         </SignUpButtonContainer>
       </form>
       <Footer>
-        <Link to="/login">로그인</Link>
+        <Link to="/auth/signin">로그인</Link>
       </Footer>
     </>
   );

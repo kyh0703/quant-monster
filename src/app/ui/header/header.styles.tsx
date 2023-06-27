@@ -9,7 +9,7 @@ export const HeaderContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  font-size: 0.8125rem;
+  font-size: 1rem;
   margin-bottom: 2rem;
   border-bottom: 1px solid ${palette.gray7};
 `;
