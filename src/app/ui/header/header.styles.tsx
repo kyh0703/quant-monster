@@ -9,11 +9,9 @@ export const HeaderContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: ${(props) => props.theme.background};
-  color: ${(props) => props.theme.color};
-  font-size: 1.25rem;
+  font-size: 0.8125rem;
   margin-bottom: 2rem;
-  border-bottom: 2px solid ${palette.gray2};
+  border-bottom: 1px solid ${palette.gray7};
 `;
 
 export const LogoWrapper = styled(Link)`
@@ -27,16 +25,16 @@ export const LinkContainer = styled.nav<{
 }>`
   display: ${(props) => (props.open ? 'flex' : 'none')};
   height: 100%;
-  width: 50%;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
+  align-items: center;
 
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 
   // 브라우저 768px < current
   @media (min-width: 768px) {
+    width: 50%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -45,20 +43,15 @@ export const LinkContainer = styled.nav<{
     left: initial;
     height: initial;
     top: initial;
-    width: 100%;
     position: relative;
     border-bottom: none;
     border-bottom-right-radius: none;
     border-bottom-left-radius: none;
-
-    > * {
-      margin-right: 1.5rem;
-    }
   }
 `;
 
 export const StyledLink = styled(Link)`
-  padding: 10px 15px;
+  padding: 5px 5px;
   color: inherit;
 
   &.active {

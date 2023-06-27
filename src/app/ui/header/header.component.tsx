@@ -51,9 +51,7 @@ const Header = ({ onLogout }: HeaderProps) => {
           <MonsterLogo />
         </LogoWrapper>
         <LinkContainer open={menuOpen}>
-          <StyledLink to="/posts">포스트</StyledLink>
           <StyledLink to="/auth/signin">로그인</StyledLink>
-          <StyledLink to="/auth/signup">SIGN UP</StyledLink>
           <ThemeLogoWrapper>
             {theme === 'dark' ? (
               <FaMoon onClick={onToggleTheme} />
