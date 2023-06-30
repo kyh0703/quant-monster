@@ -97,10 +97,10 @@ const SignUpForm: FC = () => {
         />
         {errors.passwordConfirm && <ErrorMessage>{errors.passwordConfirm.message}</ErrorMessage>}
         <SignUpButtonContainer>
-          <SignUpButton color="teal" type="submit">
+          <SignUpButton variant="primary" size="lg" type="submit">
             회원가입
           </SignUpButton>
-          <SignUpButton color="red" onClick={onCancel}>
+          <SignUpButton variant="inverse" size="lg" onClick={onCancel}>
             돌아가기
           </SignUpButton>
         </SignUpButtonContainer>

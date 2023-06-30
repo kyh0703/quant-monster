@@ -11,6 +11,8 @@ import Spinner from '@/app/ui/spinner/spinner.component';
 import { store } from '@/app/store';
 import { darkTheme, lightTheme } from '@/app/theme';
 
+// store theme  찾아오기
+
 const ErrorFallback = () => {
   return (
     <div>

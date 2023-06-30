@@ -4,19 +4,18 @@ import Link from '@/app/ui/link/link.component';
 
 import palette from '@/lib/styles/palette.lib';
 
-export const HeaderContainer = styled.div`
-  height: 4rem;
+export const NavigationContainer = styled.div`
+  height: 8rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
   font-size: 1rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid ${palette.gray7};
 `;
 
 export const LogoWrapper = styled(Link)`
   height: 100%;
-  width: 80px;
+  width: 160px;
   padding: 1rem;
 `;
 
@@ -34,11 +33,11 @@ export const LinkContainer = styled.nav<{
 
   // 브라우저 768px < current
   @media (min-width: 768px) {
-    width: 50%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: center;
+    align-items: end;
     background: none;
     left: initial;
     height: initial;
@@ -51,27 +50,11 @@ export const LinkContainer = styled.nav<{
 `;
 
 export const StyledLink = styled(Link)`
-  padding: 5px 5px;
+  padding: 10px 20px;
   color: inherit;
+  font-size: 1.75rem;
 
   &.active {
     color: ${(props) => props.theme.color};
-  }
-`;
-
-export const ThemeLogoWrapper = styled.div`
-  cursor: pointer;
-  color: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  padding: 10px 15px;
-
-  &:hover {
-    background-color: ${(props) => props.theme.headerColor};
-  }
-  &:active {
-    outline: 0;
   }
 `;

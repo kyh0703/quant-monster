@@ -24,7 +24,7 @@ const getVariantStyles = ({ variant = 'primary' }) => {
 
 const getSizeStyles = ({ size = 'medium' }) => {
   switch (size) {
-    case 'small':
+    case 'sm':
       return css`
         height: 1.5rem;
         padding: 10px 16px;
@@ -32,7 +32,14 @@ const getSizeStyles = ({ size = 'medium' }) => {
         padding-right: 1.25rem;
         font-size: 1rem;
       `;
-    case 'large':
+    case 'medium':
+      return css`
+        height: 2rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        font-size: 1rem;
+      `;
+    case 'lg':
       return css`
         height: 2.5rem;
         padding-left: 1.125rem;
@@ -41,13 +48,6 @@ const getSizeStyles = ({ size = 'medium' }) => {
           margin-left: 0.875rem;
         }
         font-size: 1.125rem;
-      `;
-    case 'medium':
-      return css`
-        height: 2rem;
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
-        font-size: 1rem;
       `;
   }
 };

@@ -85,7 +85,7 @@ const SignInForm = () => {
           {...register('password')}
         />
         {errors?.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
-        <SignInButton variant="primary" size="large">
+        <SignInButton variant="primary" size="lg">
           로그인
         </SignInButton>
       </form>

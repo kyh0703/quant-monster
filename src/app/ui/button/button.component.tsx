@@ -4,7 +4,7 @@ import { StyledButton } from './button.styles';
 
 export type ButtonVariants = 'primary' | 'inverse' | 'danger';
 
-export type ButtonSizes = 'small' | 'medium' | 'large';
+export type ButtonSizes = 'sm' | 'md' | 'lg';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariants;
@@ -18,7 +18,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       type = 'button',
       className = '',
       variant = 'primary',
-      size = 'medium',
+      size = 'md',
       isLoading = false,
       ...props
     },

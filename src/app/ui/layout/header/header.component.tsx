@@ -8,13 +8,7 @@ import { themeActions } from '@/app/theme/services/theme.slice';
 
 import { ReactComponent as MonsterLogo } from '@/assets/image/Vampire.svg';
 
-import {
-  HeaderContainer,
-  LogoWrapper,
-  LinkContainer,
-  StyledLink,
-  ThemeLogoWrapper,
-} from './header.styles';
+import { HeaderContainer, LinkContainer, StyledLink, ThemeLogoWrapper } from './header.styles';
 
 type HeaderProps = {
   onLogout?: () => void;
@@ -47,11 +41,11 @@ const Header = ({ onLogout }: HeaderProps) => {
   return (
     <>
       <HeaderContainer>
-        <LogoWrapper to="/">
-          <MonsterLogo />
-        </LogoWrapper>
         <LinkContainer open={menuOpen}>
           <StyledLink to="/auth/signin">로그인</StyledLink>
+          <p>&nbsp;|&nbsp;</p>
+          <StyledLink to="/auth/signup">회원가입</StyledLink>
+          <p>&nbsp;|</p>
           <ThemeLogoWrapper>
             {theme === 'dark' ? (
               <FaMoon onClick={onToggleTheme} />

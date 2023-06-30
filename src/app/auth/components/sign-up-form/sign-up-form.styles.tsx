@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 import palette from '@/lib/styles/palette.lib';
-import Button from '@/app/ui/button/button.component';
+
+import { StyledButton } from '@/app/ui/button/button.styles';
 
 export const SignUpFormContainer = styled.div`
   h3 {
@@ -15,7 +16,7 @@ export const SignUpFormContainer = styled.div`
 `;
 
 export const ErrorMessage = styled.div`
-  color: ${(props) => props.theme.errorColor};
+  color: ${(props) => props.theme.error};
   text-align: center;
   font-size: 0.875rem;
   margin-top: 0.5rem;
@@ -28,8 +29,9 @@ export const SignUpButtonContainer = styled.div`
   width: 100%;
 `;
 
-export const SignUpButton = styled(Button)`
+export const SignUpButton = styled(StyledButton)`
   margin-top: 1rem;
+  width: 100%;
 `;
 
 export const Footer = styled.div`
