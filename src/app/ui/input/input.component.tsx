@@ -5,15 +5,15 @@ import { InputContainer, InputField, InputLabel } from './input.styles';
 type InputProps = PropsWithRef<JSX.IntrinsicElements['input']> & {
   id: string;
   label?: string | ReactElement;
-  flex?: boolean;
+  isFlex?: boolean;
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ id, label, flex = false, ...rest }, ref) => {
+  ({ id, label, isFlex = false, ...rest }, ref) => {
     return (
-      <InputContainer flex={flex}>
+      <InputContainer isFlex={isFlex}>
         {label && (
-          <InputLabel flex={flex} htmlFor={id}>
+          <InputLabel isFlex={isFlex} htmlFor={id}>
             {label}
           </InputLabel>
         )}

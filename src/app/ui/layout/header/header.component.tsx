@@ -2,13 +2,12 @@ import { useState, MouseEvent } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
-import { useAppDispatch } from '@/app/store';
+import { useAppDispatch, useTypedSelector } from '@/app/store';
 import storage from '@/lib/storage/storage.lib';
 import { themeActions } from '@/app/theme/services/theme.slice';
 
-import { ReactComponent as MonsterLogo } from '@/assets/image/Vampire.svg';
-
 import { HeaderContainer, LinkContainer, StyledLink, ThemeLogoWrapper } from './header.styles';
+import { selectTheme } from '@/app/theme/services/theme.selector';
 
 type HeaderProps = {
   onLogout?: () => void;
@@ -22,11 +21,11 @@ const Header = ({ onLogout }: HeaderProps) => {
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState(null);
 
-  const theme = storage.getItem('theme');
+  const theme = useTypedSelector(selectTheme);
   const dispatch = useAppDispatch();
 
-  // On toggle theme button event
-  const onToggleTheme = (e: MouseEvent<HTMLOrSVGElement>) => {
+  // handle toggle theme button event
+  const handleThemeClick = (e: MouseEvent<HTMLOrSVGElement>) => {
     if (theme === 'dark') {
       dispatch(themeActions.enableLightMode());
     } else {
@@ -34,28 +33,23 @@ const Header = ({ onLogout }: HeaderProps) => {
     }
   };
 
-  const onToggleMenu = () => {
-    setMenuOpen((state) => !state);
-  };
-
   return (
     <>
       <HeaderContainer>
-        <LinkContainer open={menuOpen}>
+        <LinkContainer>
           <StyledLink to="/auth/signin">로그인</StyledLink>
           <p>&nbsp;|&nbsp;</p>
           <StyledLink to="/auth/signup">회원가입</StyledLink>
           <p>&nbsp;|</p>
           <ThemeLogoWrapper>
             {theme === 'dark' ? (
-              <FaMoon onClick={onToggleTheme} />
+              <FaMoon onClick={handleThemeClick} />
             ) : (
-              <FaSun onClick={onToggleTheme} />
+              <FaSun onClick={handleThemeClick} />
             )}
           </ThemeLogoWrapper>
         </LinkContainer>
       </HeaderContainer>
-      <Outlet />
     </>
   );
 };

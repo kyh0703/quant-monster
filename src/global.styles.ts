@@ -7,6 +7,7 @@ body {
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   background-color: ${(props) => props.theme.background};
   color: ${(props) => props.theme.color};
 }

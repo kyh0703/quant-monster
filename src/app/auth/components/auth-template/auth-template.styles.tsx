@@ -20,7 +20,5 @@ export const AuthBox = styled.div`
   border: 1px solid ${(props) => props.theme.color};
   padding: 2rem;
   width: 600px;
-  color: ${(props) => props.theme.color};
-  background: ${(props) => props.theme.background};
   border-radius: 10px;
 `;

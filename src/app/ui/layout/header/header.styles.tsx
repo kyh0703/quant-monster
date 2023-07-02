@@ -13,10 +13,7 @@ export const HeaderContainer = styled.div`
   border-bottom: 1px solid ${palette.gray7};
 `;
 
-export const LinkContainer = styled.nav<{
-  open: boolean;
-}>`
-  display: ${(props) => (props.open ? 'flex' : 'none')};
+export const LinkContainer = styled.nav`
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -25,22 +22,19 @@ export const LinkContainer = styled.nav<{
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 
-  // 브라우저 768px < current
-  @media (min-width: 768px) {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    background: none;
-    left: initial;
-    height: initial;
-    top: initial;
-    position: relative;
-    border-bottom: none;
-    border-bottom-right-radius: none;
-    border-bottom-left-radius: none;
-  }
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background: none;
+  left: initial;
+  height: initial;
+  top: initial;
+  position: relative;
+  border-bottom: none;
+  border-bottom-right-radius: none;
+  border-bottom-left-radius: none;
 `;
 
 export const StyledLink = styled(Link)`
@@ -59,10 +53,11 @@ export const ThemeLogoWrapper = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  padding: 10px 15px;
+  padding: 10px 10px;
 
   &:hover {
-    background-color: ${(props) => props.theme.headerColor};
+    color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.color};
   }
   &:active {
     outline: 0;

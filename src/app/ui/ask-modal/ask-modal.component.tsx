@@ -1,11 +1,7 @@
-import {
-  FullScreen,
-  AskModalContainer,
-  StyledButton,
-} from './ask-modal.styles';
+import { FullScreen, AskModalContainer, StyledButton } from './ask-modal.styles';
 
 type AskModalProps = {
-  visible: boolean;
+  isVisible: boolean;
   title: string;
   description: string;
   confirmText?: string;
@@ -15,7 +11,7 @@ type AskModalProps = {
 };
 
 const AskModal = ({
-  visible,
+  isVisible,
   title,
   description,
   confirmText = '확인',
@@ -23,7 +19,7 @@ const AskModal = ({
   onConfirm,
   onCancel,
 }: AskModalProps) => {
-  if (!visible) return null;
+  if (!isVisible) return null;
   return (
     <FullScreen>
       <AskModalContainer>

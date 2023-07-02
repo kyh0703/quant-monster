@@ -7,16 +7,16 @@ import { StyledButton } from '@/app/ui/button/button.styles';
 export const SignUpFormContainer = styled.div`
   h3 {
     margin: 0;
-    color: ${palette.cyan8};
     margin-bottom: 1rem;
-    font-size: 1.125rem;
+    color: ${palette.blue9};
+    font-size: 1.5rem;
     text-align: center;
     font-weight: bold;
   }
 `;
 
 export const ErrorMessage = styled.div`
-  color: ${(props) => props.theme.error};
+  color: ${palette.red8};
   text-align: center;
   font-size: 0.875rem;
   margin-top: 0.5rem;

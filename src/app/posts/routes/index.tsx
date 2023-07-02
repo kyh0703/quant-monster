@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import PostListPage from './post-list';
 import PostWritePage from './post-write';
 
-const PostRoutes = () => {
+const PostsRoutes = () => {
   return (
     <Routes>
       <Route index element={<PostListPage />} />
@@ -11,4 +11,4 @@ const PostRoutes = () => {
   );
 };
 
-export default PostRoutes;
+export default PostsRoutes;

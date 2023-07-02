@@ -62,10 +62,10 @@ export const StyledButton = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  cursor: pointer;
   outline: none;
   border: none;
-  border-radius: 4px;
+  cursor: pointer;
+  border-radius: 0.375rem;
 
   ${(props) => getVariantStyles(props)}
   ${(props) => getSizeStyles(props)}

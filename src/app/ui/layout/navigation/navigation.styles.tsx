@@ -20,9 +20,9 @@ export const LogoWrapper = styled(Link)`
 `;
 
 export const LinkContainer = styled.nav<{
-  open: boolean;
+  isOpen: boolean;
 }>`
-  display: ${(props) => (props.open ? 'flex' : 'none')};
+  display: ${(props) => (props.isOpen ? 'flex' : 'none')};
   height: 100%;
   display: flex;
   justify-content: flex-end;

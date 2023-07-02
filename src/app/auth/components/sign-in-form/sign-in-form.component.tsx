@@ -13,10 +13,12 @@ import { User, SignInDTO } from '@/app/auth/index';
 import {
   SignInFormContainer,
   SignInButton,
+  OtherSignInContainer,
+  SignInLogo,
   ErrorMessage,
   Footer,
   TinyLink,
-} from './sign-up-form.styles';
+} from './sign-in-form.styles';
 
 const SignInForm = () => {
   const navigate = useNavigate();
@@ -67,7 +69,7 @@ const SignInForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           label={<FaUser />}
-          flex
+          isFlex={true}
           id="email"
           type="email"
           autoComplete="email"
@@ -77,7 +79,7 @@ const SignInForm = () => {
         {errors?.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
         <Input
           label={<FaLock />}
-          flex
+          isFlex={true}
           id="password"
           type="password"
           autoComplete="password"
@@ -89,6 +91,20 @@ const SignInForm = () => {
           로그인
         </SignInButton>
       </form>
+      <OtherSignInContainer>
+        <div>
+          <SignInLogo imageURL="@/src/assets/image/naver-logo.png" />
+          <span>구글 로그인</span>
+        </div>
+        <div>
+          <SignInLogo imageURL="@/src/assets/image/naver-logo.png" />
+          <span>카카오 로그인</span>
+        </div>
+        <div>
+          <SignInLogo imageURL="@/src/assets/image/naver-logo.png" />
+          <span>네이버 로그인</span>
+        </div>
+      </OtherSignInContainer>
       <Footer>
         <TinyLink to="/">아이디/비밀번호 찾기</TinyLink>
         <span>|</span>

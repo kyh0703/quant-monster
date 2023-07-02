@@ -4,19 +4,21 @@ import Header from '@/app/ui/layout/header/header.component';
 import Navigation from '@/app/ui/layout/navigation/navigation.component';
 import Footer from '@/app/ui/layout/footer/footer.component';
 
-type MainLayoutProps = {
+import { MainWrapper } from './main.styles';
+
+type MainProps = {
   children: ReactNode;
 };
 
-const MainLayout = ({ children }: MainLayoutProps) => {
+const Main = ({ children }: MainProps) => {
   return (
     <div>
       <Header />
       <Navigation />
-      <main>{children}</main>
+      <MainWrapper>{children}</MainWrapper>
       <Footer />
     </div>
   );
 };
 
-export default MainLayout;
+export default Main;

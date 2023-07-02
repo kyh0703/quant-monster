@@ -73,7 +73,7 @@ const SignUpForm: FC = () => {
   };
 
   return (
-    <>
+    <SignUpFormContainer>
       <h3>회원가입</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input label="아이디" id="email" type="email" autoComplete="email" {...register('email')} />
@@ -108,7 +108,7 @@ const SignUpForm: FC = () => {
       <Footer>
         <Link to="/auth/signin">로그인</Link>
       </Footer>
-    </>
+    </SignUpFormContainer>
   );
 };
 

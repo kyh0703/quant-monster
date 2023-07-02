@@ -5,6 +5,5 @@ declare module 'styled-components' {
     id: string;
     background: string;
     color: string;
-    error: string;
   }
 }

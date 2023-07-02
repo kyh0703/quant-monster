@@ -2,9 +2,9 @@ import styled, { css } from 'styled-components';
 
 import palette from '@/lib/styles/palette.lib';
 
-export const InputContainer = styled.div<{ flex: boolean }>`
+export const InputContainer = styled.div<{ isFlex: boolean }>`
   ${(props) =>
-    props.flex &&
+    props.isFlex &&
     css`
       display: flex;
       justify-content: center;
@@ -12,12 +12,12 @@ export const InputContainer = styled.div<{ flex: boolean }>`
     `}
 `;
 
-export const InputLabel = styled.label<{ flex: boolean }>`
+export const InputLabel = styled.label<{ isFlex: boolean }>`
   text-align: left;
   font-size: 1rem;
   font-weight: 400;
   ${(props) =>
-    props.flex &&
+    props.isFlex &&
     css`
       padding-left: 1.25rem;
       padding-right: 1.25rem;

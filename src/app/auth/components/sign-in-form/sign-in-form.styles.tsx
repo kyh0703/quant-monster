@@ -11,13 +11,13 @@ export const SignInFormContainer = styled.div`
     margin: 0;
     color: ${palette.blue9};
     margin-bottom: 1rem;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: bold;
   }
 `;
 
 export const ErrorMessage = styled.div`
-  color: ${(props) => props.theme.errorColor};
+  color: ${palette.red9};
   text-align: center;
   font-size: 0.875rem;
   margin-top: 1rem;
@@ -26,6 +26,34 @@ export const ErrorMessage = styled.div`
 export const SignInButton = styled(StyledButton)`
   margin-top: 1rem;
   width: 100%;
+`;
+
+export const OtherSignInContainer = styled.div`
+  margin-top: 1rem;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const SignInLogoContainer = styled.div`
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+export const SignInLogo = styled.div<{ imageURL: string }>`
+  background-image: url(${(props) => props.imageURL});
+  background-size: cover;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Footer = styled.div`

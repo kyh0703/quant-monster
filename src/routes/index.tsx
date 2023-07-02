@@ -4,7 +4,6 @@ import { Router } from './route';
 
 const AppRouter = () => {
   const element = useRoutes([...Router]);
-
   return <>{element}</>;
 };
 

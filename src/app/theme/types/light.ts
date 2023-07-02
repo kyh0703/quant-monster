@@ -6,5 +6,4 @@ export const lightTheme: DefaultTheme = {
   id: 'light',
   background: 'white',
   color: 'black',
-  error: 'red',
 };
