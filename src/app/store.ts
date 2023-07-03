@@ -1,24 +1,42 @@
 import { ConfigureStoreOptions, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 import { api } from '@/app/api';
 
-import theme from './theme/services/theme.slice';
+import rootReducer from './reducers';
 
-export const createStore = (
-  options?: ConfigureStoreOptions['preloadedState'] | undefined,
-) =>
-  configureStore({
-    reducer: {
-      [api.reducerPath]: api.reducer,
-      theme,
-    },
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(api.middleware),
-    ...options,
-  });
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  whitelist: ['theme'],
+  storage,
+};
 
-export const store = createStore();
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  devTools: process.env.NODE_ENV !== 'production',
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(api.middleware),
+});
+
+export let persistor = persistStore(store);
 
 export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch: () => AppDispatch = useDispatch;
