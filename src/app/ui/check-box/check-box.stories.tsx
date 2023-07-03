@@ -15,5 +15,5 @@ export default meta;
 type Story = StoryObj<typeof CheckBox>;
 
 export const Primary: Story = {
-  render: () => <CheckBox />,
+  render: () => <CheckBox id="test" />,
 };

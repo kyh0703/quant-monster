@@ -1,5 +1,5 @@
 import { useState, MouseEvent } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
 import { useAppDispatch, useTypedSelector } from '@/app/store';

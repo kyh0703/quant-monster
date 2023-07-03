@@ -1,18 +1,19 @@
 import styled, { css } from 'styled-components';
 
 import { ButtonSizes, ButtonVariants } from '@/app/ui/button/button.component';
+import palette from '@/lib/styles/palette.lib';
 
 const getVariantStyles = ({ variant = 'primary' }) => {
   switch (variant) {
     case 'primary':
       return css`
-        background-color: #0000ffa0;
+        background-color: ${(props) => props.theme.primaryColor};
         color: white;
       `;
     case 'inverse':
       return css`
         background-color: white;
-        color: #0000ffa0;
+        color: ${(props) => props.theme.primaryColor};
       `;
     case 'danger':
       return css`
@@ -22,7 +23,7 @@ const getVariantStyles = ({ variant = 'primary' }) => {
   }
 };
 
-const getSizeStyles = ({ size = 'medium' }) => {
+const getSizeStyles = ({ size = 'md' }) => {
   switch (size) {
     case 'sm':
       return css`
@@ -32,7 +33,7 @@ const getSizeStyles = ({ size = 'medium' }) => {
         padding-right: 1.25rem;
         font-size: 1rem;
       `;
-    case 'medium':
+    case 'md':
       return css`
         height: 2rem;
         padding-left: 1.25rem;
@@ -66,19 +67,8 @@ export const StyledButton = styled.button<ButtonProps>`
   border: none;
   cursor: pointer;
   border-radius: 0.375rem;
+  border: 1px solid ${palette.gray3};
 
   ${(props) => getVariantStyles(props)}
   ${(props) => getSizeStyles(props)}
 `;
-
-// export const StyledLink = styled(Link)<ButtonProps>`
-//   text-decoration: none;
-//   &:focus,
-//   &:hover,
-//   &:visited,
-//   &:link,
-//   &:active {
-//     text-decoration: none;
-//   }
-//   ${buttonStyle};
-// `;

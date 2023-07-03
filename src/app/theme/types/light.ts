@@ -6,4 +6,6 @@ export const lightTheme: DefaultTheme = {
   id: 'light',
   background: 'white',
   color: 'black',
+  primaryColor: palette.blue7,
+  secondaryColor: palette.cyan0,
 };
